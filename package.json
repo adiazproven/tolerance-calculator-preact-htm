@@ -1,0 +1,17 @@
+{
+  "name": "tolerance-calculator-preact-htm",
+  "version": "1.0.0",
+  "description": "tolerance calculator preact htm",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "finalhandler": "^1.1.2",
+    "nodemon": "^2.0.13",
+    "serve-handler": "^6.1.3",
+    "serve-static": "^1.14.1"
+  }
+}
