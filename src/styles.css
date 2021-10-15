@@ -57,6 +57,7 @@
 .tc-title {
   grid-area: tc-title;
   font-size: 2.9rem;
+  margin-top: 1.5rem;
   margin-bottom: 1.5rem;
   font-weight: 200;
   line-height: 0.9em;
