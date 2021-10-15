@@ -9,33 +9,29 @@
   /* overflow: hidden; */
 }
 
-html {
-  background-color: black;
-  font-size: 62.5%;
-}
-
-body, button, input, select {
+.tc-wrapper, .tc-wrapper button, .tc-wrapper input, .tc-wrapper select {
   font-weight: lighter;
   color: white;
   font-family: 'Poppins', sans-serif;
 }
 
-/* div {
-  border: 1px solid gray;
-} */
+.tc-wrapper {
+  background-color: black;
+  font-size: 50%;
+  height: 100vh;
 
-.wrapper {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
+  grid-template-columns: minmax(0, auto);
   align-items: center;
   justify-items: center;
   grid-template-areas:
-    "container";
+    "tc-container";
 }
 
-.container {
-  padding-left: 5em;
-  padding-right: 5em;
+.tc-container {
+  grid-area: tc-container;
+  padding-left: 2rem;
+  padding-right: 2rem;
 
   display: grid;
   grid-template-columns: minmax(0, 1100px);
@@ -43,26 +39,25 @@ body, button, input, select {
   gap: 1rem;
   grid-auto-flow: row;
   grid-template-areas:
-    "title"
+    "tc-title"
     "holes-or-shafts"
-    "inputs"
-    "error-message"
-    "results-title"
-    "results";
+    "tc-inputs"
+    "tc-error-message"
+    "tc-results-title"
+    "tc-results";
 }
 
-.cointainer div {
+/* .tc-container div {
   height: 100%;
   color: red;
-}
+} */
 
 /* p { height: 0.95em; } */
 
-.title {
-  grid-area: title;
-  font-size: 5.9rem;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
+.tc-title {
+  grid-area: tc-title;
+  font-size: 2.9rem;
+  margin-bottom: 1.5rem;
   font-weight: 200;
   line-height: 0.9em;
 }
@@ -86,7 +81,7 @@ body, button, input, select {
 
 .holes-or-shafts-title {
   grid-area: holes-or-shafts-title;
-  font-size: 3.6rem;
+  font-size: 1.8rem;
   color: rgba(252,146,0,1);
   /* margin-top: 1em; */
   line-height: 0.9em;
@@ -95,15 +90,17 @@ body, button, input, select {
   justify-items: center; */
 }
 
-.inputs {
-  font-size: 2.3rem;
+.tc-inputs {
+  grid-area: tc-inputs;
+  font-size: 1.1rem;
   margin-top: 2em;
 
   display: grid;
-  grid-template-columns: 1fr minmax(0px, 9.3em);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 14rem);
+  /* grid-template-columns: 1fr minmax(0px, 9.3em); */
   grid-template-rows: 1fr 1fr 1fr 0.4fr 1.5fr;
   /* gap: 0px 0px; */
-  gap: 1rem;
+  gap: 0.5rem;
   grid-auto-flow: row;
   grid-template-areas:
     "inputs-diameter-title inputs-diameter-input"
@@ -111,17 +108,16 @@ body, button, input, select {
     "inputs-number-title input-number-input"
     ". ."
     ". inputs-calculate-button";
-  grid-area: inputs;
   
   align-items: center;
 }
 
-.inputs * {
+.tc-inputs * {
   height: 100%;
-  font-size: 3rem;
+  font-size: 1.5rem;
 }
 
-.inputs > select {
+.tc-inputs > select {
   height: 100%;
 }
 
@@ -153,14 +149,13 @@ body, button, input, select {
   bottom: 0;
 }
 
-.error-message {
-  grid-area: error-message;
+.tc-error-message {
+  grid-area: tc-error-message;
 
   text-align: center;
   height: auto;
-  margin-right: 3rem;
   font-style: italic;
-  font-size: 3rem;
+  font-size: 1.5rem;
 }
 
 .inputs-calculate-button {
@@ -174,7 +169,7 @@ body, button, input, select {
 }
 
 .diameter-input-mm {
-  right: 1rem;
+  right: 0.5rem;
   top: 0;
   position: absolute;
   color: black;
@@ -184,41 +179,43 @@ body, button, input, select {
 
 .input-number-input { grid-area: input-number-input; }
 
-.results-title {
-  grid-area: results-title;
+.tc-results-title {
+  grid-area: tc-results-title;
   color: rgba(252,146,0,1);
   font-weight: bold;
-  font-size: 3.6rem;
-  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
 }
 
-.results { grid-area: results; }
+.tc-results { grid-area: tc-results; }
 
-button {
+.tc-wrapper button {
   border-radius: 10em;
   height: 100%;
   width: 6em;
   border: 0;
 }
 
-.button-calculate {
+.tc-wrapper .button-calculate {
   background-color: rgba(252,146,0,1);
   border-radius: 0.5em;
-  font-size: 3rem;
+  font-size: 1.5rem;
   width: 100%;
 }
 
-.buttons-holes-or-shafts {
+/* .tc-wrapper button */
+.tc-wrapper .buttons-holes-or-shafts {
   background-color: white;
   color: black;
   font-weight: bold;
-  font-size: 2.8rem;
-  padding-bottom: 0.5rem;
-  padding-top: 0.5rem;
+  font-size: 1.4rem;
+  padding-bottom: 0.25rem;
+  padding-top: 0.25rem;
   height: auto;
+  /* width: auto; */
 }
 
-.buttons-holes-or-shafts.active {
+.tc-wrapper .buttons-holes-or-shafts.active {
   background-color: rgba(252,146,0,1);
 }
 
@@ -229,31 +226,27 @@ button {
   height: 37%;
 }
 
-input, select {
-  /* padding-left: 0.3em; */
-  padding-left: 1.5rem;
-  /* padding-right: 0.3em; */
+.tc-wrapper input, .tc-wrapper select {
+  padding-left: 0.75rem;
   background-color: white;
   color: black;
   width: 100%;
   height: 100%;
   border: 0;
-  /* font-size: 1.8rem; */
   border-radius: 0.5em;
   
-  padding-top: 0.2rem;
-  padding-bottom: 0.2rem;
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
 }
 
-select {
+.tc-wrapper select {
   -webkit-appearance: none;
   background-image: url('./img/Polygon\ 2.png');
-  background-position : 93% center;
+  background-position : 95% center;
   background-repeat: no-repeat;
-  /* padding-right: 5em; */
 }
 
-option {
+.tc-wrapper option {
   background-color: white;
 }
 
@@ -263,9 +256,8 @@ option {
 
 /* RESULT */
 
-.result-container {
-  /* padding-top: 0.4em;
-  padding-bottom: 0.4em; */
+.tc-result-container {
+  margin-bottom: 1.5rem;
 
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
@@ -273,47 +265,44 @@ option {
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas:
-    "result-subcontainer result-delete"
-    "result-subcontainer .";
-  
-    /* align-items: center; */
-    /* justify-items: center; */
+    "tc-result-subcontainer tc-result-delete"
+    "tc-result-subcontainer .";
 }
 
-.result-subcontainer {
+.tc-result-subcontainer {
   background-color: white;
   border-radius: 1em;
   color: black;
-  /* padding-right: 0.5em; */
   
-  font-size: 2.3rem;
-  margin-bottom: 1em;
-  padding: 1.8rem;
+  font-size: 1.1rem;
+  /* margin-bottom: 1em; */
+  padding: 0.9rem;
 
   display: grid;
   grid-template-columns: minmax(0px, 14.5em) 1fr 1fr minmax(0px, 2em);
   grid-template-rows: auto auto;
   gap: 0px 0px;
   grid-auto-flow: row;
+  align-items: center;
   grid-template-areas:
-    "result-main result-min result-max result-show-hide"
-    ". result-more result-more result-more";
-  grid-area: result-subcontainer;
+    "tc-result-main result-min result-max tc-result-show-hide"
+    ". tc-result-more tc-result-more tc-result-more";
+  grid-area: tc-result-subcontainer;
 }
 
 /* .result-subcontainer > div {
   padding: 1em;
 } */
 
-.result-delete {
-  grid-area: result-delete;
+.tc-result-delete {
+  grid-area: tc-result-delete;
 }
 
-.button-delete-result {
-  margin-top: 1.8rem;
-  margin-left: 1.8rem;
-  width: 3.7rem;
-  height: 3.7rem;
+.tc-wrapper .tc-button-delete-result {
+  margin-top: 0.9rem;
+  margin-left: 0.9rem;
+  width: 1.85rem;
+  height: 1.85rem;
   
   background-image: url('./img/paperbin.png');
   background-position : center;
@@ -322,58 +311,66 @@ option {
   background-color: transparent;
 }
 
-.result-subcontainer.active {
-  grid-template-rows: 5rem auto;
-}
+/* .tc-result-subcontainer.active {
+  padding-top: 0;
+  padding-left: 1.5rem;
+  grid-template-rows: 2.5rem auto;
+} */
 
-.result-main { grid-area: result-main; }
+.tc-result-main { grid-area: tc-result-main; }
 
-.space-right {
-  padding-right: 2rem;
+.tc-space-right {
+  padding-right: 1rem;
 }
 
 .result-min {
   grid-area: result-min;
-  padding-right: 3rem;
-  padding-left: 3rem;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
   border-left: black solid 1px;
 }
 
 .result-max { grid-area: result-max; }
 
-.result-more {
-  grid-area: result-more;
-  padding-left: 3rem;
+.tc-result-more {
+  grid-area: tc-result-more;
+  padding-left: 1.5rem;
   border-left: black solid 1px;
   /* white-space: nowrap;
   overflow: hidden; */
 }
 
 /* show more */
-.result-subcontainer.active > .result-more > p {
+
+.tc-result-subcontainer.active > .tc-result-more {
+  padding-top: 1rem;
+
+}
+
+.tc-result-subcontainer.active > .tc-result-more > p {
   font-size: 1em;
-  height: 3.4rem;
+  height: 1.7rem;
 }
 
 /* dont show more */
-.result-more > p {
+.tc-result-more > p {
   height: 0;
   font-size: 0;
 }
 
-.result-show-hide {
-  grid-area: result-show-hide;
+.tc-result-show-hide {
+  grid-area: tc-result-show-hide;
   /* text-align: end;
   justify-content: end; */
   
   text-align: end;
 }
 
-.result-show-hide-button {
+.tc-wrapper .tc-result-show-hide-button {
   
   color: white;
   background-color: rgba(252,146,0,1);
-  width: 3.7rem;
-  height: 3.7rem;
-  font-size: 2.5rem;
+  width: 1.85rem;
+  /* height: 1.85rem; */
+  font-size: 1.2rem;
 }

@@ -3,23 +3,23 @@
     border-radius: 100em;
   } */
 
-  .container {
-    padding-left: 4rem;
-    padding-right: 4rem;
+  .tc-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 
-  .title {
-    font-size: 4.9rem;
+  .tc-title {
+    font-size: 2.45rem;
   }
 
   .holes-or-shafts-title {
-    font-size: 2.6rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    margin-bottom: 5rem;
   }
 
   .holes-or-shafts {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr auto;
     grid-template-areas:
       "holes-or-shafts-title"
       "holes-or-shafts-buttons";
@@ -29,29 +29,29 @@
     justify-content: space-around;
   }
 
-  .buttons-holes-or-shafts {
+  /* .tc-wrapper .buttons-holes-or-shafts {
     width: auto;
-    padding-left: 3rem;
-    padding-right: 3rem;
-  }
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  } */
   
-  .inputs {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 14rem);
-    /* grid-template-columns: minmax(0, auto) minmax(0, 9.3em); */
+  .tc-inputs {
+    /* grid-template-columns: minmax(0, 1fr) minmax(0, 14rem); */
+    grid-template-columns: minmax(0, auto) minmax(0, 9.3em);
   }
 
   .button-calculate {
     width: minmax(0, 14rem);
   }
   
-  .result-subcontainer {
+  .tc-result-subcontainer {
     grid-template-columns: minmax(0, 1fr) minmax(0px, 2em);
     grid-template-areas:
-      "result-main result-show-hide"
-      "result-more result-more";
+      "tc-result-main tc-result-show-hide"
+      "tc-result-more tc-result-more";
   }
 
-  .result-main {
+  .tc-result-main {
     font-size: 0.8em;
   }
 
@@ -63,25 +63,25 @@
     margin: 0;
   }
 
-  .result-more {
+  .tc-result-more {
     padding-left: 0;
     border: 0;
   }
 
-  .error-message {
-    font-size: 2rem;
+  .tc-error-message {
+    font-size: 1rem;
   }
 
-  .inputs * {
-    font-size: 2.7rem;
+  .tc-inputs * {
+    font-size: 1.35rem;
   }
 
-  .results-title {
-    font-size: 3rem;
+  .tc-results-title {
+    font-size: 1.5rem;
   }
 
-  select {
-    background-position : 90% center;
+  .tc-wrapper select {
+    background-position : 96% center;
   }
 
 }

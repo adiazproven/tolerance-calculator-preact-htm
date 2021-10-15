@@ -218,7 +218,7 @@ function App() {
       let main, min, max, inferior, superior, average, range;
 
       if (width > 1100) {
-        main = html`<p><b><span class="space-right">${dia}</span><span class="space-right">${lett}${num}</span></b><span class="space-right">${mlc(low)} ${mlc(upp)} µm</span></p>`;
+        main = html`<p><b><span class="tc-space-right">${dia}</span><span class="tc-space-right">${lett}${num}</span></b><span class="tc-space-right">${mlc(low)} ${mlc(upp)} µm</span></p>`;
         inferior = html`<p><b>${i18n("inferior-measure")}</b> = ${roundToDecimals(dia + low * 0.001)} µm</p>`;
         superior = html`<p><b>${i18n("superior-measure")}</b> = ${roundToDecimals(dia + upp * 0.001)} µm</p>`;
         min = html`<p><b>${i18n("inferior-measure-expanded")}</b> = ${dia} ${mlf(low * 0.001)} = ${roundToDecimals(dia + low * 0.001)} mm</p>`;
@@ -226,7 +226,7 @@ function App() {
         average = html`<p><b>${i18n("average")}</b> = ${dia} ${mlf(avg * 0.001)} = ${roundToDecimals(dia + avg * 0.001)} mm</p>`;
         range = html`<p><b>${i18n("tolerance-range-expanded")}</b> = ${upp * 0.001} - ${low < 0 ? html`<span>(${roundToDecimals(low * 0.001)})</span>` : roundToDecimals(low * 0.001)} = ${roundToDecimals(upp * 0.001 - low * 0.001)} mm</p>`;
       } else {
-        main = html`<p><b><span class="space-right">${lett}${num}</span><span class="space-right">${dia}mm</span></b>${mlc(low)} ${mlc(upp)} µm</p>`;
+        main = html`<p><b><span class="tc-space-right">${lett}${num}</span><span class="tc-space-right">${dia}mm</span></b>${mlc(low)} ${mlc(upp)} µm</p>`;
         inferior = html`<p>${mlc(dia + low * 0.001)} µm</p>`;
         superior = html`<p>${mlc(dia + upp * 0.001)} µm</p>`;
         min = html`<p><b>${i18n("inferior-measure")}</b> = ${roundToDecimals(dia + low * 0.001)} mm</p>`;
@@ -239,21 +239,21 @@ function App() {
   
       // return jsx
       return html`
-        <div key=${id} className="result-container">
+        <div key=${id} className="tc-result-container">
   
-          <div className=${"result-subcontainer " + showMore}>
-            <div className="result-main">
+          <div className=${"tc-result-subcontainer " + showMore}>
+            <div className="tc-result-main">
               ${main}
             </div>
             <div className="result-min">${inferior}</div>
             <div className="result-max">${superior}</div>
-            <div className="result-show-hide">
-              <button className="result-show-hide-button"
+            <div className="tc-result-show-hide">
+              <button className="tc-result-show-hide-button"
                 onClick=${() => hideShow(id)}>
                 ${showMore ? "-" : "+"}
               </button>
             </div>
-            <div className="result-more">
+            <div className="tc-result-more">
               ${min}
               ${max}
               ${average}
@@ -261,8 +261,8 @@ function App() {
             </div>
           </div>
   
-          <div className="result-delete">
-            <button className="button-delete-result" onClick=${() => remove(id)}>
+          <div className="tc-result-delete">
+            <button className="tc-button-delete-result" onClick=${() => remove(id)}>
             </button>
           </div>
   
@@ -270,10 +270,10 @@ function App() {
     }
   
     return html`
-      <div className="wrapper">
+      <div className="tc-wrapper">
   
-        <div className="container">
-          <div className="title">
+        <div className="tc-container">
+          <div className="tc-title">
             <p>
               <b>${i18n("title-bold")}</b>
             </p>
@@ -300,7 +300,7 @@ function App() {
   
             </div>
           </div>
-          <div className="inputs">
+          <div className="tc-inputs">
             <div className="inputs-diameter-title">${i18n("nominal-size")}
               <div className="input-label-underline"></div>
             </div>
@@ -377,12 +377,12 @@ function App() {
                 onClick=${calculate}>${i18n("calculate")}</button>
             </div>
           </div>
-          <div className="error-message">
+          <div className="tc-error-message">
             ${alert === 1 && html`<div>${i18n("diameter-must-be-more-than-zero")}</div>`}
             ${alert === 2 && html`<div>${i18n("letter-number-combination-not-found")}</div>`}
           </div>
-          <div className="results-title">${i18n("results")}</div>
-          <div className="results">
+          <div className="tc-results-title">${i18n("results")}</div>
+          <div className="tc-results">
             <ul>
               ${[...calculations].reverse().map(toleranceCalculation => (
                 showTheResult(toleranceCalculation)
@@ -393,4 +393,4 @@ function App() {
   
       </div>`;
 }
-ReactDOM.render(html`<${App}/>`, document.getElementById("root"));
+ReactDOM.render(html`<${App}/>`, document.getElementById("tolerance-calculator"));
